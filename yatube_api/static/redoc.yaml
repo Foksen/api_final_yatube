@@ -23,13 +23,13 @@ paths:
           schema:
             type: integer
       responses:
-        '200':
+        "200":
           content:
             application/json:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/GetPost'
+                  $ref: "#/components/schemas/GetPost"
               examples:
                 Ответ с пагинацией:
                   value:
@@ -37,13 +37,12 @@ paths:
                     next: http://api.example.org/accounts/?offset=400&limit=100
                     previous: http://api.example.org/accounts/?offset=200&limit=100
                     results:
-                      -
-                        id: 0
+                      - id: 0
                         author: string
                         text: string
                         pub_date: 2021-10-14T20:41:29.648Z
                         image: string
-                        group: 0            
+                        group: 0
           description: Удачное выполнение запроса без пагинации
       tags:
         - api
@@ -57,40 +56,40 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Post'
+              $ref: "#/components/schemas/Post"
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/Post'
+              $ref: "#/components/schemas/Post"
           multipart/form-data:
             schema:
-              $ref: '#/components/schemas/Post'
+              $ref: "#/components/schemas/Post"
       responses:
-        '201':
+        "201":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Post'
+                $ref: "#/components/schemas/Post"
           description: Удачное выполнение запроса
-        '400':
+        "400":
           content:
             application/json:
               examples:
-                '400':
+                "400":
                   value:
                     text:
                       - Обязательное поле.
           description: Отсутствует обязательное поле в теле запроса
-        '401':
+        "401":
           content:
             application/json:
               examples:
-                '401':
+                "401":
                   value:
                     detail: Учетные данные не были предоставлены.
           description: Запрос от имени анонимного пользователя
       tags:
         - api
-  '/api/v1/posts/{id}/':
+  "/api/v1/posts/{id}/":
     get:
       operationId: Получение публикации
       description: Получение публикации по id.
@@ -102,17 +101,17 @@ paths:
           schema:
             type: integer
       responses:
-        '200':
+        "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Post'
+                $ref: "#/components/schemas/Post"
           description: Удачное выполнение запроса
-        '404':
+        "404":
           content:
             application/json:
               examples:
-                '404':
+                "404":
                   value:
                     detail: Страница не найдена.
           description: Попытка запроса несуществующей публикации
@@ -134,50 +133,50 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Post'
+              $ref: "#/components/schemas/Post"
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/Post'
+              $ref: "#/components/schemas/Post"
           multipart/form-data:
             schema:
-              $ref: '#/components/schemas/Post'
+              $ref: "#/components/schemas/Post"
       responses:
-        '200':
+        "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Post'
+                $ref: "#/components/schemas/Post"
           description: Удачное выполнение запроса
-        '400':
+        "400":
           content:
             application/json:
               examples:
-                '400':
+                "400":
                   value:
                     text:
                       - Обязательное поле.
           description: Отсутствует обязательное поле в теле запроса
-        '401':
+        "401":
           content:
             application/json:
               examples:
-                '401':
+                "401":
                   value:
                     detail: Учетные данные не были предоставлены.
           description: Запрос от имени анонимного пользователя
-        '403':
+        "403":
           content:
             application/json:
               examples:
-                '403':
+                "403":
                   value:
                     detail: У вас недостаточно прав для выполнения данного действия.
           description: Попытка изменения чужого контента
-        '404':
+        "404":
           content:
             application/json:
               examples:
-                '404':
+                "404":
                   value:
                     detail: Страница не найдена.
           description: Попытка изменения несуществующей публикации
@@ -199,41 +198,41 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Post'
+              $ref: "#/components/schemas/Post"
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/Post'
+              $ref: "#/components/schemas/Post"
           multipart/form-data:
             schema:
-              $ref: '#/components/schemas/Post'
+              $ref: "#/components/schemas/Post"
       responses:
-        '200':
+        "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Post'
+                $ref: "#/components/schemas/Post"
           description: Удачное выполнение запроса
-        '401':
+        "401":
           content:
             application/json:
               examples:
-                '401':
+                "401":
                   value:
                     detail: Учетные данные не были предоставлены.
           description: Запрос от имени анонимного пользователя
-        '403':
+        "403":
           content:
             application/json:
               examples:
-                '403':
+                "403":
                   value:
                     detail: У вас недостаточно прав для выполнения данного действия.
           description: Попытка изменения чужого контента
-        '404':
+        "404":
           content:
             application/json:
               examples:
-                '404':
+                "404":
                   value:
                     detail: Страница не найдена.
           description: Попытка изменения несуществующей публикации
@@ -252,35 +251,35 @@ paths:
           schema:
             type: integer
       responses:
-        '204':
+        "204":
           description: Удачное выполнение запроса
-        '401':
+        "401":
           content:
             application/json:
               examples:
-                '401':
+                "401":
                   value:
                     detail: Учетные данные не были предоставлены.
           description: Запрос от имени анонимного пользователя
-        '403':
+        "403":
           content:
             application/json:
               examples:
-                '403':
+                "403":
                   value:
                     detail: У вас недостаточно прав для выполнения данного действия.
           description: Попытка изменения чужого контента
-        '404':
+        "404":
           content:
             application/json:
               examples:
-                '404':
+                "404":
                   value:
                     detail: Страница не найдена.
           description: Попытка удаления несуществующей публикации
       tags:
         - api
-  '/api/v1/posts/{post_id}/comments/':
+  "/api/v1/posts/{post_id}/comments/":
     get:
       operationId: Получение комментариев
       description: Получение всех комментариев к публикации.
@@ -292,23 +291,20 @@ paths:
           schema:
             type: integer
       responses:
-        '200':
+        "200":
           content:
             application/json:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Comment'
+                  $ref: "#/components/schemas/Comment"
           description: Удачное выполнение запроса
-        '404':
+        "404":
           content:
             application/json:
               examples:
-                '404':
-                  value:
-                    {
-                    "detail": "Страница не найдена."
-                    }
+                "404":
+                  value: { "detail": "Страница не найдена." }
           description: Получение списка комментариев к несуществующей публикации
       tags:
         - api
@@ -326,48 +322,48 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Comment'
+              $ref: "#/components/schemas/Comment"
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/Comment'
+              $ref: "#/components/schemas/Comment"
           multipart/form-data:
             schema:
-              $ref: '#/components/schemas/Comment'
+              $ref: "#/components/schemas/Comment"
       responses:
-        '201':
+        "201":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Comment'
+                $ref: "#/components/schemas/Comment"
           description: Удачное выполнение запроса
-        '400':
+        "400":
           content:
             application/json:
               examples:
-                '400':
+                "400":
                   value:
                     text:
                       - Обязательное поле.
           description: Отсутствует обязательное поле в теле запроса
-        '401':
+        "401":
           content:
             application/json:
               examples:
-                '401':
+                "401":
                   value:
                     detail: Учетные данные не были предоставлены.
           description: Запрос от имени анонимного пользователя
-        '404':
+        "404":
           content:
             application/json:
               examples:
-                '404':
+                "404":
                   value:
                     detail: Страница не найдена.
           description: Попытка добавить комментарий к несуществующей публикации
       tags:
         - api
-  '/api/v1/posts/{post_id}/comments/{id}/':
+  "/api/v1/posts/{post_id}/comments/{id}/":
     get:
       operationId: Получение комментария
       description: Получение комментария к публикации по id.
@@ -385,17 +381,17 @@ paths:
           schema:
             type: integer
       responses:
-        '200':
+        "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Comment'
+                $ref: "#/components/schemas/Comment"
           description: Удачное выполнение запроса
-        '404':
+        "404":
           content:
             application/json:
               examples:
-                '404':
+                "404":
                   value:
                     detail: Страница не найдена.
           description: >-
@@ -425,50 +421,50 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Comment'
+              $ref: "#/components/schemas/Comment"
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/Comment'
+              $ref: "#/components/schemas/Comment"
           multipart/form-data:
             schema:
-              $ref: '#/components/schemas/Comment'
+              $ref: "#/components/schemas/Comment"
       responses:
-        '200':
+        "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Comment'
+                $ref: "#/components/schemas/Comment"
           description: Удачное выполнение запроса
-        '400':
+        "400":
           content:
             application/json:
               examples:
-                '400':
+                "400":
                   value:
                     text:
                       - Обязательное поле.
           description: Отсутствует обязательное поле в теле запроса
-        '401':
+        "401":
           content:
             application/json:
               examples:
-                '401':
+                "401":
                   value:
                     detail: Учетные данные не были предоставлены.
           description: Запрос от имени анонимного пользователя
-        '403':
+        "403":
           content:
             application/json:
               examples:
-                '403':
+                "403":
                   value:
                     detail: У вас недостаточно прав для выполнения данного действия.
           description: Попытка изменения чужого контента
-        '404':
+        "404":
           content:
             application/json:
               examples:
-                '404':
+                "404":
                   value:
                     detail: Страница не найдена.
           description: >-
@@ -498,41 +494,41 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Comment'
+              $ref: "#/components/schemas/Comment"
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/Comment'
+              $ref: "#/components/schemas/Comment"
           multipart/form-data:
             schema:
-              $ref: '#/components/schemas/Comment'
+              $ref: "#/components/schemas/Comment"
       responses:
-        '200':
+        "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Comment'
+                $ref: "#/components/schemas/Comment"
           description: Удачное выполнение запроса
-        '401':
+        "401":
           content:
             application/json:
               examples:
-                '401':
+                "401":
                   value:
                     detail: Учетные данные не были предоставлены.
           description: Запрос от имени анонимного пользователя
-        '403':
+        "403":
           content:
             application/json:
               examples:
-                '403':
+                "403":
                   value:
                     detail: У вас недостаточно прав для выполнения данного действия.
           description: Попытка изменения чужого контента
-        '404':
+        "404":
           content:
             application/json:
               examples:
-                '404':
+                "404":
                   value:
                     detail: Страница не найдена.
           description: >-
@@ -559,29 +555,29 @@ paths:
           schema:
             type: integer
       responses:
-        '204':
+        "204":
           description: Удачное выполнение запроса
-        '401':
+        "401":
           content:
             application/json:
               examples:
-                '401':
+                "401":
                   value:
                     detail: Учетные данные не были предоставлены.
           description: Запрос от имени анонимного пользователя
-        '403':
+        "403":
           content:
             application/json:
               examples:
-                '403':
+                "403":
                   value:
                     detail: У вас недостаточно прав для выполнения данного действия.
           description: Попытка изменения чужого контента
-        '404':
+        "404":
           content:
             application/json:
               examples:
-                '404':
+                "404":
                   value:
                     detail: Страница не найдена.
           description: >-
@@ -595,17 +591,17 @@ paths:
       description: Получение списка доступных сообществ.
       parameters: []
       responses:
-        '200':
+        "200":
           content:
             application/json:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Group'
+                  $ref: "#/components/schemas/Group"
           description: Удачное выполнение запроса
       tags:
         - api
-  '/api/v1/groups/{id}/':
+  "/api/v1/groups/{id}/":
     get:
       operationId: Информация о сообществе
       description: Получение информации о сообществе по id.
@@ -617,17 +613,17 @@ paths:
           schema:
             type: integer
       responses:
-        '200':
+        "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Group'
+                $ref: "#/components/schemas/Group"
           description: Удачное выполнение запроса
-        '404':
+        "404":
           content:
             application/json:
               examples:
-                '404':
+                "404":
                   value:
                     detail: Страница не найдена.
           description: Попытка запроса несуществующего сообщества
@@ -647,19 +643,19 @@ paths:
           schema:
             type: string
       responses:
-        '200':
+        "200":
           content:
             application/json:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Follow'
+                  $ref: "#/components/schemas/Follow"
           description: Удачное выполнение запроса
-        '401':
+        "401":
           content:
             application/json:
               examples:
-                '401':
+                "401":
                   value:
                     detail: Учетные данные не были предоставлены.
           description: Запрос от имени анонимного пользователя
@@ -675,25 +671,25 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Follow'
+              $ref: "#/components/schemas/Follow"
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/Follow'
+              $ref: "#/components/schemas/Follow"
           multipart/form-data:
             schema:
-              $ref: '#/components/schemas/Follow'
+              $ref: "#/components/schemas/Follow"
       responses:
-        '201':
+        "201":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Follow'
+                $ref: "#/components/schemas/Follow"
           description: Удачное выполнение запроса
-        '400':
+        "400":
           content:
             application/json:
               examples:
-                '400':
+                "400":
                   value:
                     following:
                       - Обязательное поле.
@@ -708,11 +704,11 @@ paths:
           description: >-
             Отсутствует обязательное поле в теле запроса или оно не
             соответствует требованиям
-        '401':
+        "401":
           content:
             application/json:
               examples:
-                '401':
+                "401":
                   value:
                     detail: Учетные данные не были предоставлены.
           description: Запрос от имени анонимного пользователя
@@ -727,36 +723,36 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/TokenObtainPair'
+              $ref: "#/components/schemas/TokenObtainPair"
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/TokenObtainPair'
+              $ref: "#/components/schemas/TokenObtainPair"
           multipart/form-data:
             schema:
-              $ref: '#/components/schemas/TokenObtainPair'
+              $ref: "#/components/schemas/TokenObtainPair"
       responses:
-        '200':
+        "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Token'
+                $ref: "#/components/schemas/Token"
           description: Удачное выполнение запроса
-        '400':
+        "400":
           content:
             application/json:
               examples:
-                '400':
+                "400":
                   value:
                     username:
                       - Обязательное поле.
                     password:
                       - Обязательное поле.
           description: Отсутствует обязательное поле в теле запроса
-        '401':
+        "401":
           content:
             application/json:
               examples:
-                '401':
+                "401":
                   value:
                     detail: No active account found with the given credentials
           description: Переданная учетная запись не существует
@@ -771,36 +767,36 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/TokenRefresh'
+              $ref: "#/components/schemas/TokenRefresh"
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/TokenRefresh'
+              $ref: "#/components/schemas/TokenRefresh"
           multipart/form-data:
             schema:
-              $ref: '#/components/schemas/TokenRefresh'
+              $ref: "#/components/schemas/TokenRefresh"
       responses:
-        '200':
+        "200":
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/TokenRefresh2'
+                $ref: "#/components/schemas/TokenRefresh2"
           description: Удачное выполнение запроса
-        '400':
+        "400":
           content:
             application/json:
               examples:
-                '400':
+                "400":
                   value:
                     refresh:
                       - Обязательное поле.
           description: Отсутствует обязательное поле в теле запроса
-        '401':
+        "401":
           content:
             application/json:
               examples:
-                '401':
+                "401":
                   value:
-                    detail: Token is invalid or expired
+                    detail: Token is invalid
                     code: token_not_valid
           description: Передан невалидный токен
       tags:
@@ -814,32 +810,32 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/TokenVerify'
+              $ref: "#/components/schemas/TokenVerify"
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/TokenVerify'
+              $ref: "#/components/schemas/TokenVerify"
           multipart/form-data:
             schema:
-              $ref: '#/components/schemas/TokenVerify'
+              $ref: "#/components/schemas/TokenVerify"
       responses:
-        '200':
+        "200":
           description: Удачное выполнение запроса
-        '400':
+        "400":
           content:
             application/json:
               examples:
-                '400':
+                "400":
                   value:
                     token:
                       - Обязательное поле.
           description: Отсутствует обязательное поле в теле запроса
-        '401':
+        "401":
           content:
             application/json:
               examples:
-                '401':
+                "401":
                   value:
-                    detail: Token is invalid or expired
+                    detail: Token is invalid
                     code: token_not_valid
           description: Передан невалидный токен
       tags:
@@ -936,7 +932,7 @@ components:
         slug:
           type: string
           maxLength: 50
-          pattern: '^[-a-zA-Z0-9_]+$'
+          pattern: "^[-a-zA-Z0-9_]+$"
         description:
           type: string
       required:
